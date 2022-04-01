@@ -3,27 +3,24 @@ import ReactDOM from 'react-dom';
 import { Route,Link,BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import About from './Comp/About';
-import Contact from './Comp/Contact';
-import Christ from './Comp/Christ';
+import Contact from './Comp/R_event';
+import Home from './Comp/Home';
+import photo from './images/background.jpg'
+import Signup from './Comp/Signup';
 const routing=(
   <Router>
-    <div style={{background:'yellow',color:'black'}}>
-     
-      <h1>React Router Example</h1>
-     <ul>
-       <li  ><Link to="/">TajMahal</Link></li>
-       <li ><Link to="/about">About</Link></li>
-       <li ><Link to="/Contact">Contact</Link></li>
-       <li><Link to ="/Christ">Christ The Redeemer, Brazil</Link></li>
-     </ul>
+    <div style={{ backgroundImage:`url(${photo})`, 
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        width: '100vw',
+        height: '100vh'}} >
+      <center>
      <Route exact path="/" component={App}/>
-     <Route path="/About" component={About}/>
-     <Route path="/Contact" component={Contact}/>
-     <Route path="/Christ" component={Christ}/>
-     <h1 >Naveen</h1>
-      
- 
+     <button><Link to ="/Home"> Login</Link></button><br/>
+       <Route path="/Home" component={Home}/>
+     <button><Link to="/Signup">signup</Link></button>
+         <Route path="/Signup" component={Signup}/>
+     </center>
     </div>
   </Router>
 )
